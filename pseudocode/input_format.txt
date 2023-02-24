@@ -4,3 +4,11 @@ First1 Last1 First2 Last2 ... First19 Last19 First20 Last20
                 ...
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+
+All input files should follow this same format
+First line is all the student names, only separated by whitespaces
+Every subsequent row contains all the grades for each student
+For example, Student 2's grades will all be on the 2nd row after the name row
+Grades don't have to be written as decimals, but our program will treat them as floats in order to do grade calculations
+Grades should also all be grouped by category, i.e. assignments, labs, projects, exam
+See input1.txt for an example using our names with mock grades
