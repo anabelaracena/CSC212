@@ -10,5 +10,7 @@ First line is all the student names, only separated by whitespaces
 Every subsequent row contains all the grades for each student
 For example, Student 2's grades will all be on the 2nd row after the name row
 Grades don't have to be written as decimals, but our program will treat them as floats in order to do grade calculations
-Grades should also all be grouped by category, i.e. assignments, labs, projects, exam
+Grades should also all be grouped by category, i.e. labs, assignments, projects, exam
+Grades are their out of their point totals as listed in the syllabus, i.e no lab grade should be higher than 20pts, no assignment grade above 50pts, etc
+In terms of how many grades there should be, just follow the example set by the syllabus (10 Labs, 4 Assignments, 2 Projects, 1 Exam = 17 total grades)
 See input1.txt for an example using our names with mock grades
