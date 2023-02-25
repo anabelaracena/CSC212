@@ -64,8 +64,7 @@ int main(int argc, char* argv[]) {
 
     Time for the actual deliverables
     Make an integer (call it choice) which the user can manipulate with std::cin to get different outputs
-    This is a concept taken from CSC 110
-    Initialize an integer to hold the student_index variable (get_student is about to be called a lot)
+                        ^^^^^^^^^^ This is a concept taken from CSC 110
 
     Have a loop run while the choice integer is not equal to some exit value (like -1)
         
