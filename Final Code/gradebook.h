@@ -15,7 +15,7 @@ class Gradebook {
         Gradebook::display_students()
         Gradebook::category_grades();
         Gradebook::change_grade();
-        Gradebook::final_grade;
+        Gradebook::final_grade();
         Gradebook::all_grades();
         Gradebook::get_categories();
         Gradebook::get_overall();
