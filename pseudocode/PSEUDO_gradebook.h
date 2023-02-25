@@ -5,17 +5,17 @@ Need to include: vector, string
 Class Gradebook {
     Private:
         2D vector for student names (holds strings)
-        2D vector for lab grades (holds floats)
-        2D vector for assignment grades (holds floats)
-        2D vector for project grades (holds floats)
-        1D vector for exam grades (holds floats) ---> is 1D becuase the course only has 1 exam
+        2D vector for lab grades (holds ints)
+        2D vector for assignment grades (holds ints)
+        2D vector for project grades (holds ints)
+        1D vector for exam grades (holds ints) ---> is 1D becuase the course only has 1 exam
     Public:
 
         *** Nearly every one of these functions will call get_student() ***
 
         REQUIRED by the project guidelines:
         Constructor (input parameters are the names, labs, assignments, projects, and exams)
-            - Gradebook::Gradebook( std::vector<std::string> > names, std::vector<std::vector <float> > labs, std::vector<std::vector <float> > assignments, std::vector<std::vector <float> > projects, std::vector<float> exams )
+            - Gradebook::Gradebook( std::vector<std::string> > names, std::vector<std::vector <int> > labs, std::vector<std::vector <int> > assignments, std::vector<std::vector <int> > projects, std::vector<int> exams )
         
         (void) function to get a student's final grade
             - Gradebook::final_grade()
