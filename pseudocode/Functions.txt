@@ -1,0 +1,28 @@
+Write your name next to the functions you'd like to write
+All the pseudocode you'll need to follow is in the "PSEUDO" files in the same folder as this file
+
+Main (file input portion): Connor
+
+Main (main menu portion): Connor
+
+Constructor: 
+
+final_grade:
+
+category_grades: Connor
+
+all_grades: 
+
+get_categories: 
+
+get_overall: 
+
+get_student: 
+
+is_exempt: 
+
+change_grade: Connor
+
+show_students: 
+
+update_gradebook: 
