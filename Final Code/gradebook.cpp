@@ -15,7 +15,7 @@ Gradebook::category_grades() {
             continue;
         }
         else {
-            std::cout << Error, invalid category name. Please try again. " << std::endl;
+            std::cout << "Error, invalid category name. Please try again. " << std::endl;
         }
     }
 
@@ -61,7 +61,7 @@ Gradebook::change_grade() {
             continue;
         }
         else {
-            std::cout << Error, invalid category name. Please try again. " << std::endl;
+            std::cout << "Error, invalid category name. Please try again. " << std::endl;
         }
     }
 
