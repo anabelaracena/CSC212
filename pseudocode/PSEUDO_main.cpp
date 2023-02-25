@@ -18,9 +18,9 @@ int main(int argc, char* argv[]) {
 
     Make vectors for the:
     student names (strings)
-    lab grades  (floats)
-    assignment grades  (floats)
-    exam grades (floats)
+    lab grades  (ints)
+    assignment grades  (ints)
+    exam grades (ints)
     These vectors are all 2D EXCEPT the exam grades
 
     Loop through the first line (while string stream >> temp string1)
@@ -44,13 +44,13 @@ int main(int argc, char* argv[]) {
 
             Because we know the exact number of deliverables in the class, we can add to each vector depending on counter
             If counter is between 0 and 9 (inclusive), we know temp string is a lab grade
-                Add the temp string to the lab grade temp vector (convert from string to float - std::stof)
+                Add the temp string to the lab grade temp vector (convert from string to int - std::stoi)
             If the counter is between 10 and 13, we know temp string is an assignment grade
-                Add the temp string to the assignment grade temp vector (convert from string to float - std::stof)
+                Add the temp string to the assignment grade temp vector (convert from string to int - std::stoi)
             If the counter is 14 or 15, we know temp string is a project grade
-                Add the temp string to the exam grades vector (convert from string to float - std::stof)
+                Add the temp string to the exam grades vector (convert from string to int - std::stoi)
             Lastly, is the counter is 16, we know we have an exam grade
-                Push the temp string into the exam grades vector (convert from string to float - std::stof)
+                Push the temp string into the exam grades vector (convert from string to int - std::stoi)
 
             Remember to increment the counter variable before the inner loop runs again
 
