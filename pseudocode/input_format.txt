@@ -1,16 +1,16 @@
-First1 Last1 First2 Last2 ... First19 Last19 First20 Last20
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+First1 Last1 First2 Last2 ... First(n) Last(n)
+l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 a11 a12 a13 a14 p15 p16 e17
+l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 a11 a12 a13 a14 p15 p16 e17
                 ...
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 a11 a12 a13 a14 p15 p16 e17
+l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 a11 a12 a13 a14 p15 p16 e17
 
 All input files should follow this same format
 First line is all the student names, only separated by whitespaces
 Every subsequent row contains all the grades for each student
 For example, Student 2's grades will all be on the 2nd row after the name row
-Grades don't have to be written as decimals, but our program will treat them as floats in order to do grade calculations
 Grades should also all be grouped by category, i.e. labs, assignments, projects, exam
+Grades should have a leading character indicating what category they're from (l = lab, a = assignment, p = project, e = exam)
 Grades are their out of their point totals as listed in the syllabus, i.e no lab grade should be higher than 20pts, no assignment grade above 50pts, etc
-In terms of how many grades there should be, just follow the example set by the syllabus (10 Labs, 4 Assignments, 2 Projects, 1 Exam = 17 total grades)
+In terms of how many grades there should be, there can be as little as 0, but shouldn't exceed the max set by the syllabus (10 Labs, 4 Assignments, 2 Projects, 1 Exam = 17 total grades)
 See input1.txt for an example using our names with mock grades
