@@ -27,7 +27,7 @@ All pseudocode used to map out the project is kept within the "pseudocode" folde
 
 #### Compilation
 
-To compile the program, simply enter "g++ main.cpp gradebook.cpp -o main".
+To compile the program, simply enter "g++ main.cpp gradebook.cpp -o main" in the terminal while in the same folder as the .cpp files.
 
 #### Runtime
 
