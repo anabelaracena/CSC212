@@ -483,21 +483,21 @@ void Gradebook::update_gradebook(std::string file_name) {
     // loop through every student
     for (int i = 0 ; i < this->students.size() ; i++) {
         // write the student's lab grades, ignoring -1
-        for (int j = 0 ; j < this->labs.size() ; j++) {
+        for (int j = 0 ; j < this->labs[i].size() ; j++) {
             if (this->labs[i][j] < 0) {
             continue;
             }
             out_file << "l" << this->labs[i][j] << " ";
         }
         // write the student's assignment grades, ignoring -1
-        for (int k = 0 ; k < this->assignments.size() ; k++) {
+        for (int k = 0 ; k < this->assignments[i].size() ; k++) {
             if (this->assignments[i][k] < 0) {
             continue;
             }
             out_file << "a" << this->assignments[i][k] << " ";
         }
         // write the student's project grades, ignoring -1
-        for (int l = 0 ; l < this->projects.size() ; l++) {
+        for (int l = 0 ; l < this->projects[i].size() ; l++) {
             if (this->projects[i][l] < 0) {
             continue;
             }
