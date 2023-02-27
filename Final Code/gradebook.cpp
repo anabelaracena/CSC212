@@ -139,30 +139,43 @@ void Gradebook::final_grade() {
     std::cout << this->students[idx] << "'s final letter grade is ";
 
     // give a different output depending on point total
-    if (course_total >= 940)
+    if (course_total >= 940) {
         std::cout << "A";
-    else if (course_total >= 900)
+    }
+    else if (course_total >= 900) {
         std::cout << "A-";
-    else if (course_total >= 870)
+    }
+    else if (course_total >= 870) {
         std::cout << "B+";
-    else if (course_total >= 830)
+    }
+    else if (course_total >= 830) {
         std::cout << "B";
-    else if (course_total >= 800)
+    }
+    else if (course_total >= 800) {
         std::cout << "B-";
-    else if (course_total >= 770)
+    }
+    else if (course_total >= 770) {
         std::cout << "C+";
-    else if (course_total >= 730)
+    }
+    else if (course_total >= 730) {
         std::cout << "C";
-    else if (course_total >= 700)
+    }
+    else if (course_total >= 700) {
         std::cout << "C-";
-    else if (course_total >= 670)
+    }
+    else if (course_total >= 670) {
         std::cout << "D+";
-    else if (course_total >= 630)
+    }
+    else if (course_total >= 630) {
         std::cout << "D";
-    else if (course_total >= 600)
+    }
+    else if (course_total >= 600) {
         std::cout << "D-";
-    else
+    }
+    else {
         std::cout << "F";
+    }
+    std::cout << "\n";
 }
 
 //all_grades lists out every individual grade from every category of the student, 
