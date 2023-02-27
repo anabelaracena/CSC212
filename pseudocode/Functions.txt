@@ -5,7 +5,7 @@ Main (file input portion): Connor
 
 Main (main menu portion): Connor
 
-Constructor: 
+Constructor: Connor
 
 final_grade: Frank
 
