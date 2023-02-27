@@ -6,6 +6,7 @@
 
 //constructor accepts 5 vectors of names, lab grades, assignment grades, project grades, 
 //and exam grade, and pushes any values into their respective categories
+//replacing the grade with -1 if not found
 Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<int> > &labs, std::vector<std::vector<int> > &assignments, std::vector<std::vector<int> > &projects, std::vector<std::vector<int> > exams) {
     this->students = names;
     this->labs = labs;
