@@ -4,6 +4,29 @@
 #include <fstream>
 #include "Gradebook.h"
 
+Gradebook::Gradebook(std::vector<std:string> &names, std::vector<std::vector<int> > &labs, std::vector<std::vector<int> > &assignments, std::vector<std::vector<int> > &projects, std::vector<std::vector<int> > exams) {
+    this->students = names;
+    this->labs = labs;
+    this->assignments = assignments;
+    this->projects = projects;
+    this->exams = exams;
+
+    for (int i = 0 ; i < this->students.size() ; i++) {
+        while(this->labs[i].size() < 10) {
+            this->labs[i].push_back(0);
+        }
+        while(this->assignments[i].size() < 4) {
+            this->assignments[i].push_back(0);
+        }
+        while(this->projects[i].size() < 2) {
+            this->projects[i].push_back(0);
+        }
+        while(this->exams[i].size() < 1) {
+            this->exams[i].push_back(0);
+        }
+    }
+}
+
 Gradebook::final_grade() {
     int idx = get_student();
     int course_total = 0;
@@ -189,6 +212,7 @@ Gradebook::is_exempt() {
 }
 
 Gradebook::change_grade() {
+    
     int idx = get_student();
     std::string category;
     while ((category != "Labs") && (category != "Assignments") && (category != "Projects") && (category != "Exam")) {
