@@ -1,2 +1,5 @@
+Video submitted in GradeScope (GitHub does not allow files over 25MB)
+alt: https://drive.google.com/file/d/1ROuFgPdpB3hv4zO7w_ZtLDBEyJceJ5Oa/view?usp=sharing
+
 Slight hiccup towards the 11 minute mark, the pressure of the encroaching 12 minute deadline almost forced me to choke.
 Repeatedly entered every possible incorrect user input, so it's a little rushed but it still shows what we wanted it to (results of the demo are in README)
