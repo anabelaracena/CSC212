@@ -29,18 +29,20 @@ Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<in
         }
     }
 }
-//show_students prints a list of all the students 
-void show_students() {
+
+// loops through all the students in the gradebook and displays them for the user
+void Gradebook::display_students() {
     std::cout << "These are the students in the class:\n";
     for (int i = 0; i < this->students.size(); i++) {
         std::cout << this->students[i] << std::endl;
     }
 }
-//get_student shows a list of all students and then allows input to select a student from the list
-int get_student() {
+
+// prompts the user for a student's name from the class, and returns the index of that student
+int Gradebook::get_student() {
     std::string name;
     while (true) {
-        show_students();
+        display_students();
         std::cout << "Please pick a name from the list above: ";
         std::cin >> name;
         for (int i = 0; i < this->students.size(); i++) {
@@ -52,14 +54,41 @@ int get_student() {
     }
 }
 
-//get_overall ask for a student's name then loops through adding up the total grade from the four catagories
-void get_overall() {
-    int idx = get_student();
-    double total = 0.0;
-    for (int i = 0; i < this->categories.size(); i++) {
-        total += this->categories[i][idx];
+// sums the grades from every category and prints the student's point total
+void Gradebook::get_overall() {
+    int idx;
+    int total = 0;
+    // adds lab grades to total, ignoring any -1
+    for (int i = 0 ; i < this->labs[idx].size() ; i++) {
+        if (this->labs[idx][i] < 0) {
+            continue;
+        }
+        total += this->labs[idx][i];
     }
-    std::cout << this->students[idx] << "'s course overall is " << total << " points.\n";
+    // adds assignment grades to total, ignoring any -1
+    for (int i = 0; i < this->assignments[idx].size() ; i++){
+        if (this->assignments[idx][i] < 0) {
+            continue;
+        }
+        total += this->assignments[idx][i];
+    }
+    // adds project grades to total, ignoring any -1
+    for (int i = 0; i < this->projects[idx].size() ; i++){
+        if (this->projects[idx][i] < 0) {
+            continue;
+        }
+        total += this->projects[idx][i];
+    }
+    // adds exam grade to total, ignoring -1
+    for (int i = 0; i < this->exams[idx].size() ; i++){
+        if (this->exams[idx][i] < 0) {
+            continue;
+        }
+        total += this->exams[idx][i];
+    }
+    
+    // output results
+    std::cout << this->students[idx] << "'s course overall is " << total << " points/1000.\n";
 }
 
 //final_grade looks at the current student and cumulates the total number of points 
