@@ -1,0 +1,2 @@
+Slight hiccup towards the 11 minute mark, the pressure of the encroaching 12 minute deadline almost forced me to choke.
+Repeatedly entered every possible incorrect user input, so it's a little rushed but it still shows what we wanted it to (results of the demo are in README)
