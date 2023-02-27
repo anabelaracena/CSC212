@@ -22,7 +22,7 @@ int main(int argc, char*argv[]) {
     std::vector<std::vector<int> > labs;
     std::vector<std::vector<int> > assignments;
     std::vector<std::vector<int> > projects;
-    std::vector<int> exams;
+    std::vector<std::vector<int> > exams;
 
     while(ss >> temp) {
         if (counter % 2 == 0) {
@@ -36,10 +36,10 @@ int main(int argc, char*argv[]) {
         counter += 1;
     }
 
-    counter = 0;
     std::vector<int> temp_lab;
     std::vector<int> temp_assignment;
     std::vector<int> temp_project;
+    std::vector<int> temp_exam;
 
     while(std::getline(in_file, current_line)) {
         std::stringstream ss(current_line);
@@ -58,18 +58,19 @@ int main(int argc, char*argv[]) {
             }
             else {
                 temp.erase(0,1);
-                exams.push_back(std::stoi(temp));
+                temp_exam.push_back(std::stoi(temp));
             }
-            counter += 1;
         }
         counter = 0;
         labs.push_back(temp_lab);
         assignments.push_back(temp_assignment);
-        projects.push_back(temp_project)
+        projects.push_back(temp_project);
+        exams.push_back(temp_exam);
 
         temp_lab.clear();
         temp_assignment.clear();
         temp_project.clear();
+        temp_exam.clear();
     }
 
     Gradebook gb(labs, assignments, projects, exams);
