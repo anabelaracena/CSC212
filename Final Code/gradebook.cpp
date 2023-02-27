@@ -129,3 +129,29 @@ Gradebook::change_grade() {
     }
     
 }
+
+Gradebook::update_gradebook(std::string file_name) {
+    
+    std::ofstream out_file(file_name);
+    for (int i = 0 ; i < this->students.size() ; i++) {
+        if (i == this->students.size() - 1) {
+            out_file << this->students[i] << "\n";
+            continue;
+        }
+        out_file << this->students[i] << " ";
+    }
+
+    for (int i = 0 ; i < this->students.size() ; i++) {
+        for (int j = 0 ; j < this->labs.size() ; j++) {
+            out_file << this->labs[i][j] << " ";
+        }
+        for (int k = 0 ; k < this->assignments.size() ; k++) {
+            out_file << this->assignments[i][k] << " ";
+        }
+        for (int l = 0 ; l < this->projects.size() ; l++) {
+            out_file << this->projects[i][l] << " ";
+        }
+        out_file << this->exams[i] << "\n";
+    }
+
+}
