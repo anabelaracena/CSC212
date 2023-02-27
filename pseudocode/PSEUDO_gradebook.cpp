@@ -8,7 +8,7 @@ Constructor {
 
 Listed towards the end of the .h pseudocode, but these functions are so important they're going at the top
 
-display_students() {
+show_students() {
     cout a message along the lines of "these are the students in the class"
     loop through this->students
         cout each student by calling students[i] (no need to worry about the 2nd index), make sure to endl
