@@ -36,10 +36,17 @@ int main(int argc, char*argv[]) {
         counter += 1;
     }
 
+    counter = 0;
     std::vector<int> temp_lab;
     std::vector<int> temp_assignment;
     std::vector<int> temp_project;
     std::vector<int> temp_exam;
+
+    int max_lab = 20;
+    int max_assign = 50;
+    int max_proj1 = 150;
+    int max_proj2 = 350;
+    int max_ex = 100;
 
     while(std::getline(in_file, current_line)) {
         std::stringstream ss(current_line);
@@ -50,6 +57,9 @@ int main(int argc, char*argv[]) {
                 if (lab > max_lab) {
                     lab = max_lab;
                 }
+                else if (lab < 0) {
+                    lab = 0;
+                }
                 temp_lab.push_back(lab);
             }
             else if (temp[0] == 'a') {
@@ -58,22 +68,35 @@ int main(int argc, char*argv[]) {
                 if (assign > max_assign) {
                     assign = max_assign;
                 }
+                else if (assign < 0) {
+                    assign = 0;
+                }
                 temp_assignment.push_back(assign);
             }
             else if (temp[0] == 'p') {
                 temp.erase(0,1);
-                if (temp_projects.size() == 0) {
-                    int proj1 = std::stoi(temp);
+                int proj1;
+                int proj2;
+                if (temp_project.size() == 0) {
+                    proj1 = std::stoi(temp);
                 }
                 else {
-                    int proj2 = std::stoi(temp);
+                    proj2 = std::stoi(temp);
                 }
                 if (proj1 > max_proj1) {
                     proj1 = max_proj1;
                     temp_project.push_back(proj1);
                 }
+                else if (proj1 < 0) {
+                    proj1 - 0;
+                    temp_project.push_back(proj1);
+                }
                 else if (proj2 > max_proj2) {
                     proj2 = max_proj2;
+                    temp_project.push_back(proj2);
+                }
+                else if (proj2 < 0) {
+                    proj2 = 0;
                     temp_project.push_back(proj2);
                 }
             }
@@ -83,10 +106,13 @@ int main(int argc, char*argv[]) {
                 if (ex > max_ex) {
                     ex = max_ex;
                 }
+                else if (ex < 0) {
+                    ex = 0;
+                }
                 temp_exam.push_back(ex);
             }
         }
-        
+
         labs.push_back(temp_lab);
         assignments.push_back(temp_assignment);
         projects.push_back(temp_project);
@@ -98,7 +124,7 @@ int main(int argc, char*argv[]) {
         temp_exam.clear();
     }
 
-    Gradebook gb(labs, assignments, projects, exams);
+    Gradebook gb(names, labs, assignments, projects, exams);
 
     int choice = 0;
     while(choice != -1) {
