@@ -10,7 +10,7 @@ class Gradebook {
         std::vector<std::vector<int> > exams;
 
     Public:
-        Gradebook::Gradebook(std::vector<std::string> names, std::vector<std::vector<int> > labs, std::vector<std::vector<int> > assignments, std::vector<std::vector<int> > projects, std::vector<std::vector<int> > exams);
+        Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<int> > &labs, std::vector<std::vector<int> > &assignments, std::vector<std::vector<int> > &projects, std::vector<std::vector<int> > exams);
         Gradebook::get_student();
         Gradebook::display_students()
         Gradebook::category_grades();
