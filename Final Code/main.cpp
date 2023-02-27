@@ -61,7 +61,7 @@ int main(int argc, char*argv[]) {
                 temp_exam.push_back(std::stoi(temp));
             }
         }
-        counter = 0;
+        
         labs.push_back(temp_lab);
         assignments.push_back(temp_assignment);
         projects.push_back(temp_project);
