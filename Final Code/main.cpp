@@ -92,24 +92,22 @@ int main(int argc, char*argv[]) {
                 //determine if temp_project is holding first or second project
                 if (temp_project.size() == 0) {
                     proj1 = std::stoi(temp);
+                    if (proj1 > max_proj1) {
+                        proj1 = max_proj1;
+                    }
+                    else if (proj1 < 0) {
+                        proj1 = 0;
+                    }
+                    temp_project.push_back(proj1);
                 }
                 else {
                     proj2 = std::stoi(temp);
-                }
-                if (proj1 > max_proj1) {
-                    proj1 = max_proj1;
-                    temp_project.push_back(proj1);
-                }
-                else if (proj1 < 0) {
-                    proj1 = 0;
-                    temp_project.push_back(proj1);
-                }
-                else if (proj2 > max_proj2) {
-                    proj2 = max_proj2;
-                    temp_project.push_back(proj2);
-                }
-                else if (proj2 < 0) {
-                    proj2 = 0;
+                    if (proj2 > max_proj2) {
+                        proj2 = max_proj2;
+                    }
+                    else if (proj2 < 0) {
+                        proj2 = 0;
+                    }
                     temp_project.push_back(proj2);
                 }
             }
