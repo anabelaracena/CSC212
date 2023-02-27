@@ -22,25 +22,25 @@ Gradebook::category_grades() {
     int cat_total = 0;
     if (category == "Labs") {
         std::cout << this->students[idx] << "'s Lab grades are ";
-        for (int i == 0 ; i < this->labs.size() ; i++) {
-            std::cout << this->labs[i] << " ";
-            cat_total += this_labs[i];
+        for (int i == 0 ; i < this->labs[idx].size() ; i++) {
+            std::cout << this->labs[idx][i] << " ";
+            cat_total += this->labs[idx][i];
         }
         std::cout << ", and their Lab total is " << cat_total << "/200";
     }
     else if (category == "Assignments") {
         std::cout << this->students[idx] << "'s Assignment grades are ";
-        for (int i == 0 ; i < this->assignments.size() ; i++) {
-            std::cout << this->assignments[i] << " ";
-            cat_total += this_assignments[i];
+        for (int i == 0 ; i < this->assignments[idx].size() ; i++) {
+            std::cout << this->assignments[idx][i] << " ";
+            cat_total += this->assignments[idx][i];
         }
         std::cout << ", and their Assignment total is " << cat_total << "/200";
     }
     else if (category == "Projects") {
         std::cout << this->students[idx] << "'s Project grades are ";
-        for (int i == 0 ; i < this->projetcs.size() ; i++) {
-            std::cout << this->projects[i] << " ";
-            cat_total += this_projects[i];
+        for (int i == 0 ; i < this->projetcs[idx].size() ; i++) {
+            std::cout << this->projects[idx][i] << " ";
+            cat_total += this->projects[idx][i];
         }
         std::cout << ", and their Project total is " << cat_total << "/500";
     }
