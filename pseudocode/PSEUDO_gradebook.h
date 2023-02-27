@@ -44,7 +44,7 @@ Class Gradebook {
         (void) function to get a students final grade (PRE-EXAM) to determine if the student is exempt from the final
             - Gradebook::is_exempt()
         
-        (void) function to update a certain student's grade (input parameter is the student's name as a string)
+        (void) function to update a certain student's grade
             - Gradebook::change_grade()
 
         (void) function to display the names of every student so the user can choose one for a function
