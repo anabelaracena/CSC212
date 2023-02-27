@@ -43,7 +43,7 @@ To run the program, the only command line arguments are "./main", and the name o
 ##### Output
 ![Screen Shot 2023-02-27 at 5 06 42 PM](https://user-images.githubusercontent.com/90429535/221696678-c925af6a-1781-4c51-b542-971bbc18c2b6.png)
 
-Grade for Exam 1 (Connor) changed from 100 to 99, grade for Lab 5 (Mark McMark) changed from 0 to 20, grade for exam 1 (Joe Schmoe) changed from 89 to 100.
+Grade for Assignment 3 (Connor) changed from 50 to 48, grade for Lab 5 (Mark McMark) changed from 0 to 20, grade for Exam 1 (Joe Schmoe) changed from 89 to 100.
 
 ### Irregular Data Set, Out Of Bounds Grades Cases
 
