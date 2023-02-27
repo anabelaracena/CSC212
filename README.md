@@ -2,7 +2,7 @@
 
 ## Summary
 
-The gradebook project looks for an input file containing the first and last names of students on the first line, and their grades on the respective next lines. First and last name 1 will go with line 2’s data, first and last name 2 will go with line 3’s data, etc. Each grade has a letter value before (‘l’, ‘a’, ‘p’, or ‘e’) to determine what category it falls in, ex: l10, for a lab with a grade of 10. Grading is based on the syllabus that lists out every grading category by points, totalling in 1000. The user enters ./main [file].txt in the command line to operate. After that, the user will be asked to enter an input to see different stats based on the data, including letter grade of a student, every grade from a student, editing grades of a student, and more.
+The gradebook project looks for an input file containing the first and last names of students on the first line, and their grades on the respective next lines. First and last name 1 will go with line 2’s data, first and last name 2 will go with line 3’s data, etc. Each grade in the file will have a letter value before (‘l’, ‘a’, ‘p’, or ‘e’) to determine what category it falls in, ex: l10, for a lab with a grade of 10. Grading is based on the syllabus that lists out every grading category by points, totalling in 1000. The user enters ./main [file].txt in the command line to operate. After that, the user will be asked to enter an input to see different stats based on the data, including letter grade of a student, every grade from a student, editing grades of a student, and more.
 
 ## Planning
 
