@@ -305,15 +305,15 @@ void Gradebook::update_gradebook(std::string file_name) {
 
     for (int i = 0 ; i < this->students.size() ; i++) {
         for (int j = 0 ; j < this->labs.size() ; j++) {
-            out_file << this->labs[i][j] << " ";
+            out_file << "l" << this->labs[i][j] << " ";
         }
         for (int k = 0 ; k < this->assignments.size() ; k++) {
-            out_file << this->assignments[i][k] << " ";
+            out_file << "a" << this->assignments[i][k] << " ";
         }
         for (int l = 0 ; l < this->projects.size() ; l++) {
-            out_file << this->projects[i][l] << " ";
+            out_file << "p" << this->projects[i][l] << " ";
         }
-        out_file << this->exams[i][0] << "\n";
+        out_file << "e" << this->exams[i][0] << "\n";
     }
 
 }
