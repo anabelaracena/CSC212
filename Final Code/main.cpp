@@ -101,7 +101,7 @@ int main(int argc, char*argv[]) {
                     temp_project.push_back(proj1);
                 }
                 else if (proj1 < 0) {
-                    proj1 - 0;
+                    proj1 = 0;
                     temp_project.push_back(proj1);
                 }
                 else if (proj2 > max_proj2) {
