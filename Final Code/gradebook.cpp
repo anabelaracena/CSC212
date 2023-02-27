@@ -13,16 +13,16 @@ Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<in
 
     for (int i = 0 ; i < this->students.size() ; i++) {
         while(this->labs[i].size() < 10) {
-            this->labs[i].push_back(0);
+            this->labs[i].push_back(-1);
         }
         while(this->assignments[i].size() < 4) {
-            this->assignments[i].push_back(0);
+            this->assignments[i].push_back(-1);
         }
         while(this->projects[i].size() < 2) {
-            this->projects[i].push_back(0);
+            this->projects[i].push_back(-1);
         }
         while(this->exams[i].size() < 1) {
-            this->exams[i].push_back(0);
+            this->exams[i].push_back(-1);
         }
     }
 }
@@ -31,15 +31,27 @@ void Gradebook::final_grade() {
     int idx = get_student();
     int course_total = 0;
     for (int i = 0 ; i < this->labs[idx].size() ; i++) {
+        if (this->labs[idx][i] < 0) {
+            continue;
+        }
         course_total += this->labs[idx][i];
     }
     for (int i = 0; i < this->assignments[idx].size() ; i++){
+        if (this->assignments[idx][i] < 0) {
+            continue;
+        }
         course_total += this->assignments[idx][i];
     }
     for (int i = 0; i < this->projects[idx].size() ; i++){
+        if (this->projects[idx][i] < 0) {
+            continue;
+        }
         course_total += this->projects[idx][i];
     }
     for (int i = 0; i < this->exams[idx].size() ; i++){
+        if (this->exams[idx][i] < 0) {
+            continue;
+        }
         course_total += this->exams[idx][i];
     }
 
@@ -78,6 +90,9 @@ void Gradebook::all_grades() {
 
     std::cout << this->students[idx] << "'s lab grades are: \n";
     for (int i = 0 ; i < this->labs[idx].size() ; i++ ) {
+        if (this->labs[idx][i] < 0) {
+            continue;
+        }
         std::cout << this->labs[idx][i] << " ";
         course_total += this->labs[idx][i];
     }
@@ -85,6 +100,9 @@ void Gradebook::all_grades() {
 
     std::cout << this->students[idx] << "'s assignment grades are: \n";
     for (int i = 0 ; i < this->assignments[idx].size() ; i++ ) {
+        if (this->assignments[idx][i] < 0) {
+            continue;
+        }
         std::cout << this->assignments[idx][i] << " ";
         course_total += this->assignments[idx][i];
     }
@@ -92,6 +110,9 @@ void Gradebook::all_grades() {
 
     std::cout << this->students[idx] << "'s project grades are: \n";
     for (int i = 0 ; i < this->projects[idx].size() ; i++ ) {
+        if (this->projects[idx][i] < 0) {
+            continue;
+        }
         std::cout << this->projects[idx][i] << " ";
         course_total += this->projects[idx][i];
     }
@@ -99,6 +120,9 @@ void Gradebook::all_grades() {
 
     std::cout << this->students[idx] << "'s exam grade is: \n";
     for (int i = 0 ; i < this->exams[idx].size() ; i++ ) {
+        if (this->exams[idx][i] < 0) {
+            continue;
+        }
         std::cout << this->exams[idx][i] << " ";
         course_total += this->exams[idx][i];
     }
@@ -126,6 +150,9 @@ void Gradebook::category_grades() {
     if (category == "Labs") {
         std::cout << this->students[idx] << "'s Lab grades are ";
         for (int i = 0 ; i < this->labs[idx].size() ; i++) {
+            if (this->labs[idx][i] < 0) {
+            continue;
+            }
             std::cout << this->labs[idx][i] << " ";
             cat_total += this->labs[idx][i];
         }
@@ -134,6 +161,9 @@ void Gradebook::category_grades() {
     else if (category == "Assignments") {
         std::cout << this->students[idx] << "'s Assignment grades are ";
         for (int i = 0 ; i < this->assignments[idx].size() ; i++) {
+            if (this->assignments[idx][i] < 0) {
+            continue;
+            }
             std::cout << this->assignments[idx][i] << " ";
             cat_total += this->assignments[idx][i];
         }
@@ -142,13 +172,21 @@ void Gradebook::category_grades() {
     else if (category == "Projects") {
         std::cout << this->students[idx] << "'s Project grades are ";
         for (int i = 0 ; i < this->projects[idx].size() ; i++) {
+            if (this->projects[idx][i] < 0) {
+            continue;
+            }
             std::cout << this->projects[idx][i] << " ";
             cat_total += this->projects[idx][i];
         }
         std::cout << ", and their Project total is " << cat_total << "/500";
     }
     else {
-        std::cout << this->students[idx] << "'s Exam grade is a " << this->exams[idx][0] << "/100";
+        if (this->exams[idx][0] < 0) {
+            std::cout << this->students[idx][0] << " has not taken the exam yet.";
+        }
+        else {
+            std::cout << this->students[idx] << "'s Exam grade is a " << this->exams[idx][0] << "/100";
+        }
     }
     std::cout << std::endl;
 }
@@ -160,6 +198,9 @@ void Gradebook::get_categories() {
     int course_total = 0;
 
     for (int i = 0 ; i < this->labs[idx].size() ; i++ ) {
+        if (this->labs[idx][i] < 0) {
+            continue;
+        }
         cat_total += this->labs[idx][i];
         course_total += this->labs[idx][i];
     }
@@ -167,6 +208,9 @@ void Gradebook::get_categories() {
     cat_total = 0;
 
     for (int i = 0 ; i < this->assignments[idx].size() ; i++ ) {
+        if (this->assignments[idx][i] < 0) {
+            continue;
+        }
         cat_total += this->assignments[idx][i];
         course_total += this->assignments[idx][i];
     }
@@ -174,6 +218,9 @@ void Gradebook::get_categories() {
     cat_total = 0;
 
     for (int i = 0 ; i < this->projects[idx].size() ; i++ ) {
+        if (this->projects[idx][i] < 0) {
+            continue;
+        }
         cat_total += this->projects[idx][i];
         course_total += this->projects[idx][i];
     }
@@ -181,12 +228,19 @@ void Gradebook::get_categories() {
     cat_total = 0;
 
     for (int i = 0 ; i < this->exams[idx].size() ; i++ ) {
+        if (this->exams[idx][i] < 0) {
+            continue;
+        }
         cat_total += this->exams[idx][i];
         course_total += this->exams[idx][i];
     }
-    std::cout << this->students[idx] << "'s exam total is " << cat_total << "/100\n";
-
-    std::cout << this->students[idx] << "'s course total is " << course_total;
+    if (this->exams[idx][0] < 0) {
+            std::cout << this->students[idx] << " has not taken the exam yet.\n";
+    }
+    else {
+        std::cout << this->students[idx] << "'s exam total is " << cat_total << "/100\n";
+    }
+    std::cout << this->students[idx] << "'s course total is " << course_total << "/1000\n";
 }
 
 void Gradebook::is_exempt() {
@@ -195,12 +249,21 @@ void Gradebook::is_exempt() {
     int course_total = 0;
 
     for (int i = 0; i < this->labs[idx].size(); i++) {
+        if (this->labs[idx][i] < 0) {
+            continue;
+        }
         course_total += this->labs[idx][i];
     }
     for (int i = 0; i < this->assignments[idx].size(); i++) {
+        if (this->assignments[idx][i] < 0) {
+            continue;
+        }
         course_total += this->assignments[idx][i];
     }
     for (int i = 0; i < this->projects[idx].size(); i++) {
+        if (this->projects[idx][i] < 0) {
+            continue;
+        }
         course_total += this->projects[idx][i];
     }
 
@@ -305,15 +368,29 @@ void Gradebook::update_gradebook(std::string file_name) {
 
     for (int i = 0 ; i < this->students.size() ; i++) {
         for (int j = 0 ; j < this->labs.size() ; j++) {
+            if (this->labs[i][j] < 0) {
+            continue;
+            }
             out_file << "l" << this->labs[i][j] << " ";
         }
         for (int k = 0 ; k < this->assignments.size() ; k++) {
+            if (this->assignments[i][k] < 0) {
+            continue;
+            }
             out_file << "a" << this->assignments[i][k] << " ";
         }
         for (int l = 0 ; l < this->projects.size() ; l++) {
+            if (this->projects[i][l] < 0) {
+            continue;
+            }
             out_file << "p" << this->projects[i][l] << " ";
         }
-        out_file << "e" << this->exams[i][0] << "\n";
+        if (this->exams[i][0] < 0) {
+            continue;
+        }
+        else {
+            out_file << "e" << this->exams[i][0] << "\n";
+        }
     }
 
 }
