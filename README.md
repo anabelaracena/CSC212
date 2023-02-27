@@ -53,4 +53,4 @@ Grade for Assignment 3 (Connor) changed from 50 to 48, grade for Lab 5 (Mark McM
 ##### Output
 ![Screen Shot 2023-02-27 at 5 09 09 PM](https://user-images.githubusercontent.com/90429535/221697091-8c43e8e3-d2ea-4ee8-abcb-2c53789b67d6.png)
 
-No explicit changes made, function automatically recognizes invalid grades and corrects them to either 0 or the maximum possible point value.
+No explicit changes made, main automatically recognizes invalid grades and corrects them to either 0 or the maximum possible point value.
