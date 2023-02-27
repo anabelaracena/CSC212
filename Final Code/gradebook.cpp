@@ -4,6 +4,86 @@
 #include <fstream>
 #include "Gradebook.h"
 
+Gradebook::final_grade() {
+    int idx = get_student();
+    int course_total = 0;
+    for (int i = 0 ; i < this->labs[idx].size() ; i++) {
+        course_total += this->labs[idx][i];
+    }
+    for (int i = 0; i < this->assignments[idx].size() ; i++){
+        course_total += this->assignments[idx][i];
+    }
+    for (int i = 0; i < this->projects[idx].size() ; i++){
+        course_total += this->projects[idx][i];
+    }
+    for (int i = 0; i < this->exams[idx].size() ; i++){
+        course_total += this->exams[idx][i];
+    }
+
+    std::cout << this->students[idx] << "'s final letter grade is ";
+
+    if (course_total >= 940)
+        std::cout << "A";
+    else if (course_total >= 900)
+        std::cout << "A-";
+    else if (course_total >= 870)
+        std::cout << "B+";
+    else if (course_total >= 830)
+        std::cout << "B";
+    else if (course_total >= 800)
+        std::cout << "B-";
+    else if (course_total >= 770)
+        std::cout << "C+";
+    else if (course_total >= 730)
+        std::cout << "C";
+    else if (course_total >= 700)
+        std::cout << "C-";
+    else if (course_total >= 670)
+        std::cout << "D+";
+    else if (course_total >= 630)
+        std::cout << "D";
+    else if (course_total >= 600)
+        std::cout << "D-";
+    else
+        std::cout << "F";
+}
+
+Gradebook::all_grades() {
+
+    int idx = get_student();
+    int course_total = 0;
+
+    std::cout << this->students[idx] << "'s lab grades are: \n";
+    for (int i = 0 ; i < this->labs[idx].size() ; i++ ) {
+        std::cout << this->labs[idx][i] << " ";
+        course_total += this->labs[idx][i];
+    }
+    std::cout << "\n";
+
+    std::cout << this->students[idx] << "'s assignment grades are: \n";
+    for (int i = 0 ; i < this->assignments[idx].size() ; i++ ) {
+        std::cout << this->assignments[idx][i] << " ";
+        course_total += this->assignments[idx][i];
+    }
+    std::cout << "\n";
+
+    std::cout << this->students[idx] << "'s project grades are: \n";
+    for (int i = 0 ; i < this->projects[idx].size() ; i++ ) {
+        std::cout << this->projects[idx][i] << " ";
+        course_total += this->projects[idx][i];
+    }
+    std::cout << "\n";
+
+    std::cout << this->students[idx] << "'s exam grade is: \n";
+    for (int i = 0 ; i < this->exams[idx].size() ; i++ ) {
+        std::cout << this->exams[idx][i] << " ";
+        course_total += this->exams[idx][i];
+    }
+    std::cout << "\n";
+
+    std::cout << this->students[idx] << "'s course total is " << course_total << "/1000";
+}
+
 Gradebook::category_grades() {
     int idx = get_student();
     std::string category;
@@ -48,6 +128,64 @@ Gradebook::category_grades() {
         std::cout << this->students[idx] << "'s Exam grade is a " << this->exams[idx] << "/100";
     }
     std::cout << std::endl;
+}
+
+Gradebook::get_categories() {
+
+    int idx = get_student();
+    int cat_total = 0;
+    int course_total = 0;
+
+    for (int i = 0 ; i < this->labs[idx].size() ; i++ ) {
+        cat_total += this->labs[idx][i];
+        course_total += this->labs[idx][i];
+    }
+    std::cout << this->students[idx] << "'s lab total is " << cat_total << "/200\n";
+    cat_total = 0;
+
+    for (int i = 0 ; i < this->assignments[idx].size() ; i++ ) {
+        cat_total += this->assignments[idx][i];
+        course_total += this->assignments[idx][i];
+    }
+    std::cout << this->students[idx] << "'s assignment total is " << cat_total << "/200\n";
+    cat_total = 0;
+
+    for (int i = 0 ; i < this->projects[idx].size() ; i++ ) {
+        cat_total += this->projects[idx][i];
+        course_total += this->projects[idx][i];
+    }
+    std::cout << this->students[idx] << "'s project total is " << cat_total << "/500\n";
+    cat_total = 0;
+
+    for (int i = 0 ; i < this->exams[idx].size() ; i++ ) {
+        cat_total += this->exams[idx][i];
+        course_total += this->exams[idx][i];
+    }
+    std::cout << this->students[idx] << "'s exam total is " << cat_total << "/100\n";
+
+    std::cout << this-students[idx] << "'s course total is " << course_total;
+}
+
+Gradebook::is_exempt() {
+
+    int idx = get_student();
+    int course_total = 0;
+
+    for (int i = 0; i < this->labs[idx].size(); i++) {
+        course_total += this->labs[idx][i];
+    }
+    for (int i = 0; i < this->assignments[idx].size(); i++) {
+        course_total += this->assignments[idx][i];
+    }
+    for (int i = 0; i < this->projects[idx].size(); i++) {
+        course_total += this->projects[idx][i];
+    }
+
+    if (course_total >= 810) {
+        std::cout << this->students[idx] << " is exempt from taking the final! :)";
+    } else {
+        std::cout << this->students[idx] << " is not exempt from taking the final";
+    }
 }
 
 Gradebook::change_grade() {
