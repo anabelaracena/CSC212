@@ -1,0 +1,4 @@
+Jimmy Diaz Jake Smith James Griffin
+a100 a80 l40 l20 l100 p120 p40 l80 l80 a80 a80 e500 l50 l45 l19 l17 l50
+e1 e2 l3 l4 l5 l6 l7 l8 p9 p10 p11 a12 a13 a14 a15 a16 a17
+e100 e100 l100 l100 l100 l100 l100 a100 a100 a100 a100 a100 p100 p100 p100 p100 p100
