@@ -27,6 +27,8 @@ All pseudocode used to map out the project is kept within the "pseudocode" folde
 
 #### Compilation
 
-
+To compile the program, simply enter "g++ main.cpp gradebook.cpp -o main".
 
 #### Runtime
+
+To run the program, the only command line arguments are "./main", and the name of the .txt file the user wishes to input. While reading the input, any incomplete gradebook entries or gradebook entries exceeding the minimum/maximum permissable grade (ex: a lab grade of 2000pts) will be replaced by a -1 in memory. The gradebook class implementation will ignore this -1 value anytime it appears, as no deliverable may have a negative grade value. During runtime, the program will prompt the user with several choices they can make regarding what kind of results they want from the gradebook. The choices include, but are not limited to: getting a student's current letter grade, getting a student's grades from a certain deliverable category, seeign whether or not a student is exempt from the final exam, and so on. In the program, invalid input will be handled with an error message, and the user will be re-prompted to give a correct input. When the user is finished with the program, they simply have to enter "-1" at the main menu, and the program will quit with a good-bye message, as well as updating the input file with any changes the user may have made to the grades. 
