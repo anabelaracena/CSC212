@@ -40,17 +40,27 @@ void Gradebook::display_students() {
 
 // prompts the user for a student's name from the class, and returns the index of that student
 int Gradebook::get_student() {
+    std::string first_name;
+    std::string last_name;
     std::string name;
-    while (true) {
+    int idx = -1;
+    while (idx == -1) {
         display_students();
-        std::cout << "Please pick a name from the list above: ";
-        std::cin >> name;
+        std::cout << "Please pick a first name from the list above: ";
+        std::cin >> first_name;
+        std::cout << "Please pick a last name from the list above: ";
+        std::cin >> last_name;
+        name = first_name + " " + last_name;
         for (int i = 0; i < this->students.size(); i++) {
             if (this->students[i] == name) {
-                return i;
+                idx = i;
+                return idx;
             }
         }
         std::cout << "Error: Invalid name entered. Please try again.\n";
+        first_name.clear();
+        last_name.clear();
+        name.clear();
     }
 }
 
@@ -429,10 +439,10 @@ void Gradebook::change_grade() {
     }
 
     // change max_grade depending on which project grade is being updated
-    if ((category == "Projects") && (deliverable_num = 1)) {
+    if (deliverable_num == 1 && category == "Projects") {
         max_grade = 150;
     }
-    else if ((category == "Projects") && (deliverable_num == 2)) {
+    else if (deliverable_num == 2 && category == "Projects") {
         max_grade = 350;
     }
 
