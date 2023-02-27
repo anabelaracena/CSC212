@@ -46,19 +46,44 @@ int main(int argc, char*argv[]) {
         while(ss >> temp) {
             if (temp[0] == 'l') {
                 temp.erase(0,1);
-                temp_lab.push_back(std::stoi(temp));
+                int lab = std::stoi(temp);
+                if (lab > max_lab) {
+                    lab = max_lab;
+                }
+                temp_lab.push_back(lab);
             }
             else if (temp[0] == 'a') {
                 temp.erase(0,1);
-                temp_assignment.push_back(std::stoi(temp));
+                int assign = std::stoi(temp);
+                if (assign > max_assign) {
+                    assign = max_assign;
+                }
+                temp_assignment.push_back(assign);
             }
             else if (temp[0] == 'p') {
                 temp.erase(0,1);
-                temp_project.push_back(std::stoi(temp));
+                if (temp_projects.size() == 0) {
+                    int proj1 = std::stoi(temp);
+                }
+                else {
+                    int proj2 = std::stoi(temp);
+                }
+                if (proj1 > max_proj1) {
+                    proj1 = max_proj1;
+                    temp_project.push_back(proj1);
+                }
+                else if (proj2 > max_proj2) {
+                    proj2 = max_proj2;
+                    temp_project.push_back(proj2);
+                }
             }
             else {
                 temp.erase(0,1);
-                temp_exam.push_back(std::stoi(temp));
+                int ex = std::stoi(temp);
+                if (ex > max_ex) {
+                    ex = max_ex;
+                }
+                temp_exam.push_back(ex);
             }
         }
         
