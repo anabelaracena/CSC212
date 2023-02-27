@@ -56,10 +56,11 @@ int main(int argc, char*argv[]) {
     int max_proj2 = 350;
     int max_ex = 100;
 
-    //fill the actual categories with the data on the temp categories
+    //fill final category vectors with data on the temp categories
     while(std::getline(in_file, current_line)) {
         std::stringstream ss(current_line);
         while(ss >> temp) {
+            //push lab grades
             if (temp[0] == 'l') {
                 temp.erase(0,1);
                 int lab = std::stoi(temp);
@@ -71,6 +72,7 @@ int main(int argc, char*argv[]) {
                 }
                 temp_lab.push_back(lab);
             }
+            //push assignment grades
             else if (temp[0] == 'a') {
                 temp.erase(0,1);
                 int assign = std::stoi(temp);
@@ -82,10 +84,12 @@ int main(int argc, char*argv[]) {
                 }
                 temp_assignment.push_back(assign);
             }
+            //push project grades
             else if (temp[0] == 'p') {
                 temp.erase(0,1);
                 int proj1;
                 int proj2;
+                //determine if temp_project is holding first or second project
                 if (temp_project.size() == 0) {
                     proj1 = std::stoi(temp);
                 }
@@ -109,6 +113,7 @@ int main(int argc, char*argv[]) {
                     temp_project.push_back(proj2);
                 }
             }
+            //push exam grades
             else {
                 temp.erase(0,1);
                 int ex = std::stoi(temp);
