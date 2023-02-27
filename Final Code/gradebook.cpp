@@ -409,7 +409,7 @@ void Gradebook::change_grade() {
     }
     else if (category == "Exam") {
         max_grade = 100;
-        max_deliverable == 1;
+        max_deliverable = 1;
     }
     else {
         max_deliverable = 2;
@@ -430,7 +430,7 @@ void Gradebook::change_grade() {
 
     // change max_grade depending on which project grade is being updated
     if ((category == "Projects") && (deliverable_num = 1)) {
-        max_grade == 150;
+        max_grade = 150;
     }
     else if ((category == "Projects") && (deliverable_num == 2)) {
         max_grade = 350;
@@ -452,13 +452,13 @@ void Gradebook::change_grade() {
 
     // update the chosen deliverable with the new input grade
     if (category == "Labs") {
-        this->labs[idx][deliverable_num - 1] == new_grade;
+        this->labs[idx][deliverable_num - 1] = new_grade;
     }
     else if (category == "Assignments") {
-        this->assignments[idx][deliverable_num - 1] == new_grade;
+        this->assignments[idx][deliverable_num - 1] = new_grade;
     }
     else if (category == "Projects") {
-        this->projects[idx][deliverable_num - 1] == new_grade;
+        this->projects[idx][deliverable_num - 1] = new_grade;
     }
     else {
         this->exams[idx][0] = new_grade;
