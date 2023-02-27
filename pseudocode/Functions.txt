@@ -7,22 +7,22 @@ Main (main menu portion): Connor
 
 Constructor: Connor
 
-final_grade: Frank
+show_students: Derrick
 
-category_grades: Connor
-
-all_grades: Frank
-
-get_categories: Frank
+get_student: Derrick
 
 get_overall: Derrick
 
-get_student: Derrick
+final_grade: Frank
+
+all_grades: Frank
+
+category_grades: Connor
+
+get_categories: Frank
 
 is_exempt: Frank
 
 change_grade: Connor
-
-show_students: Derrick
 
 update_gradebook: Connor
