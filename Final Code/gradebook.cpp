@@ -4,7 +4,7 @@
 #include <fstream>
 #include "Gradebook.h"
 
-Gradebook::Gradebook(std::vector<std:string> &names, std::vector<std::vector<int> > &labs, std::vector<std::vector<int> > &assignments, std::vector<std::vector<int> > &projects, std::vector<std::vector<int> > exams) {
+Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<int> > &labs, std::vector<std::vector<int> > &assignments, std::vector<std::vector<int> > &projects, std::vector<std::vector<int> > exams) {
     this->students = names;
     this->labs = labs;
     this->assignments = assignments;
@@ -27,7 +27,7 @@ Gradebook::Gradebook(std::vector<std:string> &names, std::vector<std::vector<int
     }
 }
 
-Gradebook::final_grade() {
+void Gradebook::final_grade() {
     int idx = get_student();
     int course_total = 0;
     for (int i = 0 ; i < this->labs[idx].size() ; i++) {
@@ -71,7 +71,7 @@ Gradebook::final_grade() {
         std::cout << "F";
 }
 
-Gradebook::all_grades() {
+void Gradebook::all_grades() {
 
     int idx = get_student();
     int course_total = 0;
@@ -107,11 +107,11 @@ Gradebook::all_grades() {
     std::cout << this->students[idx] << "'s course total is " << course_total << "/1000";
 }
 
-Gradebook::category_grades() {
+void Gradebook::category_grades() {
     int idx = get_student();
     std::string category;
     while ((category != "Labs") && (category != "Assignments") && (category != "Projects") && (category != "Exam")) {
-        std::cout << "Enter one of the 4 categories below to get all of " << this->students[idx] << "'s grades for that category.\n" ;
+        std::cout << "Enter one of the 4 categories below to get all of " << this->students[idx] << "'s grades for that category.\n"
                 << "Labs\tAssignments\tProjects\tExam\n" << "Enter category";
         std::cin >> category;
         if ((category == "Labs") || (category == "Assignments") || (category == "Projects") || (category == "Exam")) {
@@ -125,7 +125,7 @@ Gradebook::category_grades() {
     int cat_total = 0;
     if (category == "Labs") {
         std::cout << this->students[idx] << "'s Lab grades are ";
-        for (int i == 0 ; i < this->labs[idx].size() ; i++) {
+        for (int i = 0 ; i < this->labs[idx].size() ; i++) {
             std::cout << this->labs[idx][i] << " ";
             cat_total += this->labs[idx][i];
         }
@@ -133,7 +133,7 @@ Gradebook::category_grades() {
     }
     else if (category == "Assignments") {
         std::cout << this->students[idx] << "'s Assignment grades are ";
-        for (int i == 0 ; i < this->assignments[idx].size() ; i++) {
+        for (int i = 0 ; i < this->assignments[idx].size() ; i++) {
             std::cout << this->assignments[idx][i] << " ";
             cat_total += this->assignments[idx][i];
         }
@@ -141,19 +141,19 @@ Gradebook::category_grades() {
     }
     else if (category == "Projects") {
         std::cout << this->students[idx] << "'s Project grades are ";
-        for (int i == 0 ; i < this->projetcs[idx].size() ; i++) {
+        for (int i = 0 ; i < this->projects[idx].size() ; i++) {
             std::cout << this->projects[idx][i] << " ";
             cat_total += this->projects[idx][i];
         }
         std::cout << ", and their Project total is " << cat_total << "/500";
     }
     else {
-        std::cout << this->students[idx] << "'s Exam grade is a " << this->exams[idx] << "/100";
+        std::cout << this->students[idx] << "'s Exam grade is a " << this->exams[idx][0] << "/100";
     }
     std::cout << std::endl;
 }
 
-Gradebook::get_categories() {
+void Gradebook::get_categories() {
 
     int idx = get_student();
     int cat_total = 0;
@@ -186,10 +186,10 @@ Gradebook::get_categories() {
     }
     std::cout << this->students[idx] << "'s exam total is " << cat_total << "/100\n";
 
-    std::cout << this-students[idx] << "'s course total is " << course_total;
+    std::cout << this->students[idx] << "'s course total is " << course_total;
 }
 
-Gradebook::is_exempt() {
+void Gradebook::is_exempt() {
 
     int idx = get_student();
     int course_total = 0;
@@ -211,12 +211,12 @@ Gradebook::is_exempt() {
     }
 }
 
-Gradebook::change_grade() {
+void Gradebook::change_grade() {
     
     int idx = get_student();
     std::string category;
     while ((category != "Labs") && (category != "Assignments") && (category != "Projects") && (category != "Exam")) {
-        std::cout << "Which of the 4 categories below would you like to change " << this->students[idx] << "'s grade for?\n"; 
+        std::cout << "Which of the 4 categories below would you like to change " << this->students[idx] << "'s grade for?\n"
                 << "Labs\tAssignments\tProjects\tExam\n" << "Enter category: ";
         std::cin >> category;
         if ((category == "Labs") || (category == "Assignments") || (category == "Projects") || (category == "Exam")) {
@@ -257,10 +257,10 @@ Gradebook::change_grade() {
         }
     }
 
-    if (category == "Projects" && deliverable_num = 1) {
+    if ((category == "Projects") && (deliverable_num = 1)) {
         max_grade == 150;
     }
-    else if (category == "Projects" && deliverable_num == 2) {
+    else if ((category == "Projects") && (deliverable_num == 2)) {
         max_grade = 350;
     }
 
@@ -287,12 +287,12 @@ Gradebook::change_grade() {
         this->projects[idx][deliverable_num - 1] == new_grade;
     }
     else {
-        this->exams[idx] == new_grade;
+        this->exams[idx][0] = new_grade;
     }
     
 }
 
-Gradebook::update_gradebook(std::string file_name) {
+void Gradebook::update_gradebook(std::string file_name) {
     
     std::ofstream out_file(file_name);
     for (int i = 0 ; i < this->students.size() ; i++) {
@@ -313,7 +313,7 @@ Gradebook::update_gradebook(std::string file_name) {
         for (int l = 0 ; l < this->projects.size() ; l++) {
             out_file << this->projects[i][l] << " ";
         }
-        out_file << this->exams[i] << "\n";
+        out_file << this->exams[i][0] << "\n";
     }
 
 }
