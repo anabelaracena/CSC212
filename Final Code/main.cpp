@@ -7,23 +7,29 @@
 
 int main(int argc, char*argv[]) {
 
+    //open the input file using string file_name
     std::string file_name(argv[1]);
     std::ifstream in_file(file_name);
 
+    //create a string current_line to read the file
     std::string current_line;
     std::getline(in_file, current_line);
     std::stringstream ss(current_line);
 
+    //create two additional strings to store the first and last names
+    //using a counter to determine if the current name is a first or last name
     std::string temp;
     std::string full_name;
     int counter = 0;
 
+    //create vectors for the names and the 4 grade categories
     std::vector<std::string> names;
     std::vector<std::vector<int> > labs;
     std::vector<std::vector<int> > assignments;
     std::vector<std::vector<int> > projects;
     std::vector<std::vector<int> > exams;
 
+    //fill the names vector with the names on the input file
     while(ss >> temp) {
         if (counter % 2 == 0) {
             full_name += temp;
@@ -36,18 +42,21 @@ int main(int argc, char*argv[]) {
         counter += 1;
     }
 
+    //create temporary vectors to fill in main vectors
     counter = 0;
     std::vector<int> temp_lab;
     std::vector<int> temp_assignment;
     std::vector<int> temp_project;
     std::vector<int> temp_exam;
 
+    //set the max possible score of each category
     int max_lab = 20;
     int max_assign = 50;
     int max_proj1 = 150;
     int max_proj2 = 350;
     int max_ex = 100;
 
+    //fill the actual categories with the data on the temp categories
     while(std::getline(in_file, current_line)) {
         std::stringstream ss(current_line);
         while(ss >> temp) {
@@ -124,8 +133,10 @@ int main(int argc, char*argv[]) {
         temp_exam.clear();
     }
 
+    //create Gradebook class
     Gradebook gb(names, labs, assignments, projects, exams);
 
+    //display UI with possible choices and request choice from user
     int choice = 0;
     while(choice != -1) {
         std::cout << "---------- Main Menu ----------" << std::endl;
