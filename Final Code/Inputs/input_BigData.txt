@@ -1,4 +1,0 @@
-Michael Bikeal Paul Picasso Ernest Hemmingway
-l20 l20 l20 l20 l20 l20 l20 l20 l20 l21 a50 a50 a50 a51 p150 p351 e101
-l30 l30 l30 l30 l30 l30 l30 l30 l30 l30 a60 a60 a60 a60 p200 p500 e999
-l999 l999 l999 l999 l999 l999 l999 l999 l999 l999 a999 a999 a999 a999 p999 p999 e999
