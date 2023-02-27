@@ -142,16 +142,16 @@ int main(int argc, char*argv[]) {
     //display UI with possible choices and request choice from user
     int choice = 0;
     while(choice != -1) {
-        std::cout << "---------- Main Menu ----------" << std::endl;
+        std::cout << "\n---------- Main Menu ----------\n" << std::endl;
         std::cout << "Welcome to the Gradebook. Enter a number from one of the options below to get started. " << std::endl;
         std::cout << "1: See the final letter grade of a select student\n"
                 << "2: See all the grades within a select category for a student, as well as their course total\n"
-                << "3: See all grades for a slect student grouped by category, as well as their course total\n"
+                << "3: See all grades for a select student grouped by category, as well as their course total\n"
                 << "4: See all category totals for a select student, as well as their course total\n"
                 << "5: See a select student's course total\n"
-                << "6: See if a student would've been exempt from Professor Schrader's final\n"
+                << "6: See if a student is exempt from the final\n"
                 << "7: Change a student's grade\n"
-                << "-1: Quit Gradebook program"
+                << "-1: Quit Gradebook program\n"
                 << "Please enter a choice: ";
         std::cin >> choice;
         if (choice == -1) {
