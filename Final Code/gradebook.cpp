@@ -56,7 +56,7 @@ int Gradebook::get_student() {
 
 // sums the grades from every category and prints the student's point total
 void Gradebook::get_overall() {
-    int idx;
+    int idx = get_student();
     int total = 0;
     // adds lab grades to total, ignoring any -1
     for (int i = 0 ; i < this->labs[idx].size() ; i++) {
@@ -88,7 +88,7 @@ void Gradebook::get_overall() {
     }
     
     // output results
-    std::cout << this->students[idx] << "'s course overall is " << total << " points/1000.\n";
+    std::cout << this->students[idx] << "'s course overall is " << total << " points out of 1000.\n";
 }
 
 //final_grade looks at the current student and cumulates the total number of points 
