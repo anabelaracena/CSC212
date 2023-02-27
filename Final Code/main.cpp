@@ -44,16 +44,20 @@ int main(int argc, char*argv[]) {
     while(std::getline(in_file, current_line)) {
         std::stringstream ss(current_line);
         while(ss >> temp) {
-            if (counter >= 0 && counter <= 9) {
+            if (temp[0] == 'l') {
+                temp.erase(0,1);
                 temp_lab.push_back(std::stoi(temp));
             }
-            else if (counter >= 10 && counter <= 13) {
+            else if (temp[0] == 'a') {
+                temp.erase(0,1);
                 temp_assignment.push_back(std::stoi(temp));
             }
-            else if (counter == 14 || counter == 15) {
-                temp_lab.push_back(std::stoi(temp));
+            else if (temp[0] == 'p') {
+                temp.erase(0,1);
+                temp_project.push_back(std::stoi(temp));
             }
             else {
+                temp.erase(0,1);
                 exams.push_back(std::stoi(temp));
             }
             counter += 1;
