@@ -162,7 +162,7 @@ void Gradebook::all_grades() {
     int idx = get_student();
     int course_total = 0;
 
-    // diplay every lab grade and add to course total, ignoring -1
+    // display every lab grade and add to course total, ignoring -1
     std::cout << this->students[idx] << "'s lab grades are: \n";
     for (int i = 0 ; i < this->labs[idx].size() ; i++ ) {
         if (this->labs[idx][i] < 0) {
@@ -173,7 +173,7 @@ void Gradebook::all_grades() {
     }
     std::cout << "\n";
 
-    // diplay every assignment grade and add to course total, ignoring -1
+    // display every assignment grade and add to course total, ignoring -1
     std::cout << this->students[idx] << "'s assignment grades are: \n";
     for (int i = 0 ; i < this->assignments[idx].size() ; i++ ) {
         if (this->assignments[idx][i] < 0) {
@@ -184,7 +184,7 @@ void Gradebook::all_grades() {
     }
     std::cout << "\n";
 
-    // diplay every project grade and add to course total, ignoring -1
+    // display every project grade and add to course total, ignoring -1
     std::cout << this->students[idx] << "'s project grades are: \n";
     for (int i = 0 ; i < this->projects[idx].size() ; i++ ) {
         if (this->projects[idx][i] < 0) {
@@ -195,7 +195,7 @@ void Gradebook::all_grades() {
     }
     std::cout << "\n";
 
-    // diplay exam grade and add to course total, ignoring -1
+    // display exam grade and add to course total, ignoring -1
     std::cout << this->students[idx] << "'s exam grade is: \n";
     for (int i = 0 ; i < this->exams[idx].size() ; i++ ) {
         if (this->exams[idx][i] < 0) {
