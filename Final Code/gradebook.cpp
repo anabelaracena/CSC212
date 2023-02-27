@@ -29,6 +29,38 @@ Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<in
         }
     }
 }
+//show_students prints a list of all the students 
+void show_students() {
+    std::cout << "These are the students in the class:\n";
+    for (int i = 0; i < this->students.size(); i++) {
+        std::cout << this->students[i] << std::endl;
+    }
+}
+//get_student shows a list of all students and then allows input to select a student from the list
+int get_student() {
+    std::string name;
+    while (true) {
+        show_students();
+        std::cout << "Please pick a name from the list above: ";
+        std::cin >> name;
+        for (int i = 0; i < this->students.size(); i++) {
+            if (this->students[i] == name) {
+                return i;
+            }
+        }
+        std::cout << "Error: Invalid name entered. Please try again.\n";
+    }
+}
+
+//get_overall ask for a student's name then loops through adding up the total grade from the four catagories
+void get_overall() {
+    int idx = get_student();
+    double total = 0.0;
+    for (int i = 0; i < this->categories.size(); i++) {
+        total += this->categories[i][idx];
+    }
+    std::cout << this->students[idx] << "'s course overall is " << total << " points.\n";
+}
 
 //final_grade looks at the current student and cumulates the total number of points 
 //they got across every category, then outputs the letter grade
