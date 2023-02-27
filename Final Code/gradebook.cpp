@@ -446,7 +446,7 @@ void Gradebook::change_grade() {
         }
         else {
             std::cout << "Error, invalid grade value for that deliverable. Please try again. \n"
-            << "\tLabs: 0-20pts\n\tAssignments: 0-50pts\n\tProject 1: 0-150pts\n\tProject 2: 0-350pts" << std::endl;
+            << "\tLabs: 0-20pts\n\tAssignments: 0-50pts\n\tProject 1: 0-150pts\n\tProject 2: 0-350pts\n\tExam: 0-100pts" << std::endl;
         }
     }
 
