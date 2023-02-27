@@ -4,6 +4,8 @@
 #include <fstream>
 #include "Gradebook.h"
 
+//constructor accepts 5 vectors of names, lab grades, assignment grades, project grades, 
+//and exam grade, and pushes any values into their respective categories
 Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<int> > &labs, std::vector<std::vector<int> > &assignments, std::vector<std::vector<int> > &projects, std::vector<std::vector<int> > exams) {
     this->students = names;
     this->labs = labs;
@@ -27,6 +29,8 @@ Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<in
     }
 }
 
+//final_grade looks at the current student and cumulates the total number of points 
+//they got across every category, then outputs the letter grade
 void Gradebook::final_grade() {
     int idx = get_student();
     int course_total = 0;
@@ -83,6 +87,8 @@ void Gradebook::final_grade() {
         std::cout << "F";
 }
 
+//all_grades lists out every individual grade from every category of the student, 
+//then outputs the student’s total course grade out of 1000.
 void Gradebook::all_grades() {
 
     int idx = get_student();
@@ -131,6 +137,8 @@ void Gradebook::all_grades() {
     std::cout << this->students[idx] << "'s course total is " << course_total << "/1000";
 }
 
+//category_grades requests a category to be input by the user and 
+//displays the grades and total for that category
 void Gradebook::category_grades() {
     int idx = get_student();
     std::string category;
@@ -191,6 +199,8 @@ void Gradebook::category_grades() {
     std::cout << std::endl;
 }
 
+//get_categories lists out every individual category and each of the grades 
+//within that category, as well as the overall course grade
 void Gradebook::get_categories() {
 
     int idx = get_student();
@@ -243,6 +253,8 @@ void Gradebook::get_categories() {
     std::cout << this->students[idx] << "'s course total is " << course_total << "/1000\n";
 }
 
+//is_exempt judges all of the grades before the exam and 
+//determines if the student would have 90% or higher by the exam.
 void Gradebook::is_exempt() {
 
     int idx = get_student();
@@ -274,6 +286,9 @@ void Gradebook::is_exempt() {
     }
 }
 
+
+//change_grade requests a category to be input by the user and then asks which 
+//of the list to be changed, then requests a new grade to be input
 void Gradebook::change_grade() {
     
     int idx = get_student();
@@ -355,6 +370,8 @@ void Gradebook::change_grade() {
     
 }
 
+//update_gradebook takes all of the current data and replaces the 
+//existing input file with the updated data.
 void Gradebook::update_gradebook(std::string file_name) {
     
     std::ofstream out_file(file_name);
