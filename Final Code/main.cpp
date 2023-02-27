@@ -181,6 +181,7 @@ int main(int argc, char*argv[]) {
         }
     }
 
+    //save any changes made by user
     std::cout << "Thank you for using the Gradebook, goodbye." << std::endl;
     gb.update_gradebook(file_name);
 
