@@ -199,7 +199,7 @@ void Gradebook::all_grades() {
     std::cout << this->students[idx] << "'s exam grade is: \n";
     for (int i = 0 ; i < this->exams[idx].size() ; i++ ) {
         if (this->exams[idx][i] < 0) {
-            std::cout << "N/A (not yet taken)",
+            std::cout << "N/A (not yet taken)";
             continue;
         }
         std::cout << this->exams[idx][i] << " ";
