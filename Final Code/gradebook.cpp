@@ -14,6 +14,7 @@ Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<in
     this->projects = projects;
     this->exams = exams;
 
+    // for empty student grade vectors, push in a vector starting with -1 (all categories)
     while(this->labs.size() < this->students.size()) {
         std::vector<int> l;
         l.push_back(-1);
@@ -35,6 +36,7 @@ Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<in
         this->exams.push_back(e);
     }
 
+    // for unfinished student grade vectors, push in garbage -1 value that will be ignored everywhere
     for (int i = 0 ; i < this->students.size() ; i++) {
         while(this->labs[i].size() < 10) {
             this->labs[i].push_back(-1);
