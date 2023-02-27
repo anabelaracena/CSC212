@@ -14,6 +14,27 @@ Gradebook::Gradebook(std::vector<std::string> &names, std::vector<std::vector<in
     this->projects = projects;
     this->exams = exams;
 
+    while(this->labs.size() < this->students.size()) {
+        std::vector<int> l;
+        l.push_back(-1);
+        this->labs.push_back(l);
+    }
+    while(this->assignments.size() < this->students.size()) {
+        std::vector<int> a;
+        a.push_back(-1);
+        this->assignments.push_back(a);
+    }
+    while(this->projects.size() < this->students.size()) {
+        std::vector<int> p;
+        p.push_back(-1);
+        this->projects.push_back(p);
+    }
+    while(this->exams.size() < this->students.size()) {
+        std::vector<int> e;
+        e.push_back(-1);
+        this->exams.push_back(e);
+    }
+
     for (int i = 0 ; i < this->students.size() ; i++) {
         while(this->labs[i].size() < 10) {
             this->labs[i].push_back(-1);
@@ -134,7 +155,6 @@ void Gradebook::final_grade() {
         }
         course_total += this->exams[idx][i];
     }
-
     // prep output
     std::cout << this->students[idx] << "'s final letter grade is ";
 
@@ -176,6 +196,7 @@ void Gradebook::final_grade() {
         std::cout << "F";
     }
     std::cout << "\n";
+
 }
 
 //all_grades lists out every individual grade from every category of the student, 
@@ -185,7 +206,7 @@ void Gradebook::all_grades() {
     int idx = get_student();
     int course_total = 0;
 
-    // display every lab grade and add to course total, ignoring -1
+    // diplay every lab grade and add to course total, ignoring -1
     std::cout << this->students[idx] << "'s lab grades are: \n";
     for (int i = 0 ; i < this->labs[idx].size() ; i++ ) {
         if (this->labs[idx][i] < 0) {
@@ -196,7 +217,7 @@ void Gradebook::all_grades() {
     }
     std::cout << "\n";
 
-    // display every assignment grade and add to course total, ignoring -1
+    // diplay every assignment grade and add to course total, ignoring -1
     std::cout << this->students[idx] << "'s assignment grades are: \n";
     for (int i = 0 ; i < this->assignments[idx].size() ; i++ ) {
         if (this->assignments[idx][i] < 0) {
@@ -207,7 +228,7 @@ void Gradebook::all_grades() {
     }
     std::cout << "\n";
 
-    // display every project grade and add to course total, ignoring -1
+    // diplay every project grade and add to course total, ignoring -1
     std::cout << this->students[idx] << "'s project grades are: \n";
     for (int i = 0 ; i < this->projects[idx].size() ; i++ ) {
         if (this->projects[idx][i] < 0) {
@@ -218,15 +239,16 @@ void Gradebook::all_grades() {
     }
     std::cout << "\n";
 
-    // display exam grade and add to course total, ignoring -1
+    // diplay exam grade and add to course total, ignoring -1
     std::cout << this->students[idx] << "'s exam grade is: \n";
     for (int i = 0 ; i < this->exams[idx].size() ; i++ ) {
         if (this->exams[idx][i] < 0) {
             std::cout << "N/A (not yet taken)";
-            continue;
         }
+        else {
         std::cout << this->exams[idx][i] << " ";
         course_total += this->exams[idx][i];
+        }
     }
     std::cout << "\n";
 
@@ -243,7 +265,7 @@ void Gradebook::category_grades() {
     // get a category from user input, correcting for invalid input
     while ((category != "Labs") && (category != "Assignments") && (category != "Projects") && (category != "Exam")) {
         std::cout << "Enter one of the 4 categories below to get all of " << this->students[idx] << "'s grades for that category.\n"
-                << "Labs\tAssignments\tProjects\tExam\n" << "Enter category";
+                << "Labs\tAssignments\tProjects\tExam\n" << "Enter category: ";
         std::cin >> category;
         if ((category == "Labs") || (category == "Assignments") || (category == "Projects") || (category == "Exam")) {
             continue;
@@ -419,7 +441,7 @@ void Gradebook::change_grade() {
         }
     }
 
-    // get teh maximum allowing deliverable # and grade value, depending on which category is chosen
+    // get the maximum allowing deliverable # and grade value, depending on which category is chosen
     int max_grade = 0;
     int max_deliverable = 0;
     if (category == "Labs") {
@@ -462,7 +484,7 @@ void Gradebook::change_grade() {
     // get a new grade from user input, correcting for invalid input
     int new_grade = -1;
     while(true) {
-        std::cout << "Please enter the new grade for deliverable " << deliverable_num << " from the " << category << " category:";
+        std::cout << "Please enter the new grade for deliverable " << deliverable_num << " from the " << category << " category: ";
         std::cin >> new_grade;
         if (new_grade >= 0 && new_grade <= max_grade) {
             break;
@@ -526,13 +548,17 @@ void Gradebook::update_gradebook(std::string file_name) {
             }
             out_file << "p" << this->projects[i][l] << " ";
         }
-        // write the student's exam grade, ignoring
-        if (this->exams[i][0] < 0) {
+        for (int m = 0 ; m < this->exams[i].size() ; m++) {
+            if (this->exams[i][m] < 0) {
+                continue;
+            }
+            out_file << "e" << this->exams[i][m];
+        }
+        if (i == this->students.size() - 1) {
             continue;
         }
         else {
-            out_file << "e" << this->exams[i][0] << "\n";
+            out_file << "\n";
         }
     }
-
 }
