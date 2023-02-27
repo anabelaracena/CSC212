@@ -11,7 +11,7 @@ final_grade: Frank
 
 category_grades: Connor
 
-all_grades: 
+all_grades: Frank
 
 get_categories: Frank
 
